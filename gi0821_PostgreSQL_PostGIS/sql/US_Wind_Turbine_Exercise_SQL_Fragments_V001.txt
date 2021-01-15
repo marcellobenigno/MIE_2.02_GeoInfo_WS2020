@@ -1,0 +1,48 @@
+
+
+# SQL FRAGMENTS FOR THE EXECISE
+
+select s.stusps, s.gid, count(*) as turbine_cnt
+from us_state_20 s
+join
+us_wind_turbine w
+on st_contains(s.geom, w.wkb_geometry)
+group by stusps, s.gid
+order by turbine_cnt desc
+
+
+select s.stusps, s.gid, count(*) as turbine_cnt
+from us_state_20 s
+join
+us_wind_turbine w
+on st_contains(s.geom, w.geom)
+group by stusps, s.gid
+order by turbine_cnt desc
+
+
+create view v_wt_count as 
+select s.stusps, s.gid, count(*) as turbine_cnt
+from us_state_20 s
+join
+us_wind_turbine w
+on st_contains(s.geom, w.geom)
+group by stusps, s.gid
+order by turbine_cnt desc
+
+
+select s.gid, s.name, s.stusps, c.turbine_cnt from us_state_20 s left join v_wt_count c on s.stusps = c.stusps order by c.turbine_cnt, s.name
+
+
+
+select b.stusps, b.gid, coalesce(turbine_cnt,0), s.geom from (
+  select s.stusps, s.gid, count(*) as turbine_cnt
+  from us_state_20 s
+  join
+  us_wind_turbine w
+  on st_contains(s.geom, w.wkb_geometry)
+  group by stusps, s.gid
+  order by turbine_cnt desc
+ )b 
+ right join us_state_20 s on b.gid = s.gid 
+ 
+ 
