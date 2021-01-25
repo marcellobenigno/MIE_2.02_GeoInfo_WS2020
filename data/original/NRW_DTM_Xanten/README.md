@@ -1,6 +1,6 @@
 # Digital Terrain Model of the Municipality of Xanten
 
-Becuse of the data size we decided not to distribute the DTM based on Airborne Laser Scanning (ALS) via Git. 
+Because of the data size we decided not to distribute the DTM based on Airborne Laser Scanning (ALS) via Git. 
 
 The ALS data is organized in tiles which are bundled in zip archives for each municipality (in our case "Xanten"). The original file format of each tile is a formatted text file with three columns for the x-y-z coordinates denoted as XYZ file format. Each row represents one grid point in space.
 
