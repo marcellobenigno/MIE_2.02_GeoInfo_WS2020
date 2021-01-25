@@ -13,8 +13,9 @@ tmp/
 #data/original/DTM_Xanten*
 
 data/original/NRW_DTM_Xanten/dgm1_05170052_Xanten_EPSG4647_XYZ/
+data/original/NRW_DOP_Olpe/
 
-data/original/DWD/*
+data/original/DWD/
 
 
 data/generated/DWD/hourly/precipitation/recent/prec_ts_appended.csv
