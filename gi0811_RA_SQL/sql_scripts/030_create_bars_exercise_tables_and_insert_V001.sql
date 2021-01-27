@@ -4,9 +4,9 @@ DROP TABLE public."Sells";
 
 CREATE TABLE public."Sells"
 (
-    bar character(50),
-    beer character(50),
-    price decimal(7, 2)
+    bar varchar(50),
+    beer varchar(50),
+    price numeric(7, 2)
 )
 WITH (
     OIDS = FALSE
@@ -29,10 +29,10 @@ ALTER TABLE public."Sells"
 OWNER to env_user;
 */
 
-INSERT INTO public."Sells" values ('Joe’s', 'Bud', 2.50);
-INSERT INTO public."Sells" values ('Joe’s', 'Miller', 2.75);
-INSERT INTO public."Sells" values ('Sue’s', 'Bud', 2.50);
-INSERT INTO public."Sells" values ('Sue’s', 'Coors', 3.00);
+INSERT INTO public."Sells" values ('Joes', 'Bud', 2.50);
+INSERT INTO public."Sells" values ('Joes', 'Miller', 2.75);
+INSERT INTO public."Sells" values ('Sues', 'Bud', 2.50);
+INSERT INTO public."Sells" values ('Sues', 'Coors', 3.00);
 
 
 DROP TABLE public."Bars";
@@ -46,13 +46,13 @@ DROP TABLE public."Bars";
 
 CREATE TABLE "Bars"
 (
-    name character(50),
-    addr character(50)
+    name varchar(50),
+    addr varchar(50)
 )
 WITH (
     OIDS = FALSE
 );
 
-INSERT INTO "Bars" values ('Joe’s', 'Maple St.');
-INSERT INTO "Bars"(name) values ('Sue’s');
-UPDATE "Bars" SET "addr" = 'River Rd.' WHERE "name" = 'Sue’s';
+INSERT INTO "Bars" values ('Joes', 'Maple St.');
+INSERT INTO "Bars"(name) values ('Sues');
+UPDATE "Bars" SET "addr" = 'River Rd.' WHERE "name" = 'Sues';
